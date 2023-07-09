@@ -1,56 +1,59 @@
-variable "resource_group_name" {
-  type        = string
-  description = "name of the resource group"
-}
-
-variable "location" {
-  type        = string
-  description = "location of the resource group"
-}
-
-# variable "app_command_line" {
-#   type        = string
-#   description = "name of the azurerm_app_service_plan"
-# }
-
 variable "name" {
-  type        = string
-  description = "name of the azurerm_linux_web_app"
-
+    type = string
+    description = " The name which should be used for this Windows Web App."
+  
 }
-
-# variable "kind" {
-#   type        = string
-#   description = "The kind of the App Service Plan to create. Possible values are Windows (also available as App), Linux, elastic (for Premium Consumption) and FunctionApp (for a Consumption Plan). Defaults to Windows."
-#   # default     = "Linux"
-# }
-
-variable "dotnet_version" {
-  type        = string
-  description = " Is this App Service Plan Reserved. Defaults to false."
-  default     = "6.0"
+variable "resource_group_name" {
+    type = string
+    description = "The name of the Resource Group where the Windows Web App should exist"
+  
 }
-
+variable "location" {
+    type = string
+    description = "The Azure Region where the Windows Web App should exist."
+  
+}
+variable "service_plan_id" {
+    type = string
+    description = "The ID of the Service Plan that this Windows App Service will be created in."
+  
+}
+variable "application_stack" {
+    description = "What kind of application stack is the website"
+    type = bool
+    default = true
+  
+}
 variable "current_stack" {
-  type        = string
-  description = " Specifies the plan's pricing tier."
-  # default     = "dotnet"
+    type = string
+    description = "Application Tech Stack"
+}
+
+variable "stack_version" {
+    type = string
+    description = "Stack Version (Give Docker image only if the chosen Current Stack is Docker)"
 }
 
 variable "ftps_state" {
   type        = string
-  description = " Specifies the plan's instance size."
+  description = "The State of FTP / FTPS service. Possible values include AllAllowed, FtpsOnly, and Disabled."
   default     = "FtpsOnly"
 }
 
 variable "app_command_line" {
   type        = string
-  description = "(optional) describe your variable"
-  default     = ""
+  description = "The App command line to launch."
 }
 
-variable "service_plan_id" {
-  type        = string
-  description = "(optional) describe your variable"
 
+variable "java_server" {
+  type = string
+  description = "docker image" 
+  default = "JAVA" 
+}
+
+variable "docker_image_tag" {
+  type = string
+  description = "Tag for docker image"
+  default = "latest"
 }
