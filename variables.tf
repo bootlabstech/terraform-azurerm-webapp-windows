@@ -8,13 +8,14 @@ variable "location" {
   description = "location of the resource group"
 }
 
-# variable "app_command_line" {
-#   type        = string
-#   description = "name of the azurerm_app_service_plan"
-# }
+variable "stack_version" {
+  type        = string
+  description = "name of the azurerm_app_service_plan"
+  default = ""
+}
 
 variable "name" {
-  type        = string
+  type        = stringa
   description = "name of the azurerm_linux_web_app"
 
 }
@@ -54,32 +55,38 @@ variable "service_plan_id" {
   description = "(optional) describe your variable"
 
 }
-variable "virtual_network_subnet_id" {
-  type = string
-  description = "vnet link" 
-}
+# variable "docker_image_name" {
+#   type = string
+#   description = "vnet link"
+#   default = ""
+# }
 
-variable "vnet_route_all_enabled" {
-  type = bool
-  description = "Tag for docker image"
-}
-variable "physical_path" {
+# variable "docker_registry_url" {
+#   type = string
+#   description = "Tag for docker image"
+#   default = ""
+# }
+# variable "docker_registry_username" {
+#     type =  string
+#     description = "value"
+#     default = ""
+
+# }
+# variable "docker_registry_password" {
+#     type = string
+#     description = "value"
+#     default = ""
+
+# }
+variable "java_embedded_server_enabled" {
     type =  string
     description = "value"
-  
+    default = ""
+
 }
-variable "virtual_path" {
+variable "tomcat_version" {
     type = string
     description = "value"
-  
-}
-variable "physical_path1" {
-    type =  string
-    description = "value"
-  
-}
-variable "virtual_path1" {
-    type = string
-    description = "value"
-  
+    default = ""
+
 }
