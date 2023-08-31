@@ -15,9 +15,8 @@ variable "stack_version" {
 }
 
 variable "name" {
-  type        = stringa
+  type        = string
   description = "name of the azurerm_linux_web_app"
-
 }
 
 # variable "kind" {
