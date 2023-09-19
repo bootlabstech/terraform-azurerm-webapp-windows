@@ -4,16 +4,17 @@ resource "azurerm_windows_web_app" "example" {
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = var.service_plan_id
+
   site_config {
     ftps_state       = var.ftps_state
     app_command_line = var.app_command_line
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
       content {
-        docker_image_name = var.stack_version
-        # docker_registry_url = var.docker_registry_url
-        # docker_registry_username = var.docker_registry_username
-        # docker_registry_password = var.docker_registry_password
+        docker_image_name        = var.stack_version
+        docker_registry_url      = var.docker_registry_url
+        docker_registry_username = var.docker_registry_username
+        docker_registry_password = var.docker_registry_password
       }
     }
     dynamic "application_stack" {
@@ -46,6 +47,12 @@ resource "azurerm_windows_web_app" "example" {
       for_each = var.current_stack == "php" ? [1] : []
       content {
         php_version = var.stack_version
+      }
+    }
+    dynamic "application_stack" {
+      for_each = var.current_stack == "python" ? [1] : []
+      content {
+        python = var.python
       }
     }
   }

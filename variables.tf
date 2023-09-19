@@ -1,91 +1,78 @@
+variable "name" {
+  type        = string
+  description = "The name which should be used for this Windows Windows Web App."
+}
+
 variable "resource_group_name" {
   type        = string
-  description = "name of the resource group"
+  description = "The name of the Resource Group where the Windows Web App should exist."
 }
 
 variable "location" {
   type        = string
-  description = "location of the resource group"
+  description = "The Azure Region where the Windows Web App should exist.Central India or South India"
 }
 
-variable "stack_version" {
+variable "service_plan_id" {
   type        = string
-  description = "name of the azurerm_app_service_plan"
-  default = ""
-}
+  description = "The ID of the Service Plan that this Windows App Service will be created in."
 
-variable "name" {
-  type        = string
-  description = "name of the azurerm_linux_web_app"
-}
-
-# variable "kind" {
-#   type        = string
-#   description = "The kind of the App Service Plan to create. Possible values are Windows (also available as App), Linux, elastic (for Premium Consumption) and FunctionApp (for a Consumption Plan). Defaults to Windows."
-#   # default     = "Linux"
-# }
-
-variable "dotnet_version" {
-  type        = string
-  description = " Is this App Service Plan Reserved. Defaults to false."
-  default     = "6.0"
-}
-
-variable "current_stack" {
-  type        = string
-  description = " Specifies the plan's pricing tier."
-  # default     = "dotnet"
 }
 
 variable "ftps_state" {
   type        = string
-  description = " Specifies the plan's instance size."
+  description = "The State of FTP / FTPS service. Possible values include: AllAllowed, FtpsOnly, Disabled."
   default     = "FtpsOnly"
 }
 
 variable "app_command_line" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "The App command line to launch."
   default     = ""
 }
-
-variable "service_plan_id" {
+variable "current_stack" {
   type        = string
-  description = "(optional) describe your variable"
+  description = " The Application Stack for the Windows Web App. Possible values include dotnet, dotnetcore, node, python, php, and java."
+}
+
+variable "stack_version" {
+  type        = string
+  description = "Version of the selected stack."
 
 }
-# variable "docker_image_name" {
-#   type = string
-#   description = "vnet link"
-#   default = ""
-# }
 
-# variable "docker_registry_url" {
-#   type = string
-#   description = "Tag for docker image"
-#   default = ""
-# }
-# variable "docker_registry_username" {
-#     type =  string
-#     description = "value"
-#     default = ""
+variable "docker_registry_url" {
+  type        = string
+  description = "The URL of the container registry where the docker_image_name is located. e.g. https://index.docker.io or https://mcr.microsoft.com. This value is required with docker_image_name."
+  default     = "https://mcr.microsoft.com"
+}
+variable "docker_registry_username" {
+  type        = string
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "admin"
 
-# }
-# variable "docker_registry_password" {
-#     type = string
-#     description = "value"
-#     default = ""
+}
+variable "docker_registry_password" {
+  type        = string
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "Welcome@1234"
 
-# }
+}
 variable "java_embedded_server_enabled" {
-    type =  string
-    description = "value"
-    default = ""
+  type        = string
+  description = "value"
+  default     = ""
 
 }
 variable "tomcat_version" {
-    type = string
-    description = "value"
-    default = ""
+  type        = string
+  description = "value"
+  default     = ""
+
+}
+variable "python" {
+  type        = bool
+  description = "value"
+  default     = false
 
 }
