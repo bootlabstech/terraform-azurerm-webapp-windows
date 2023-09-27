@@ -76,3 +76,12 @@ variable "python" {
   default     = false
 
 }
+variable "virtual_network_subnet_id" {
+  type = string
+  description = "vnet link" 
+}
+
+variable "vnet_route_all_enabled" {
+  type = bool
+  description = "enable all outbound"
+}

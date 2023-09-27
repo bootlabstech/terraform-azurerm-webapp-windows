@@ -1,13 +1,15 @@
 # Creates a Windows webapp
 resource "azurerm_windows_web_app" "example" {
-  name                = var.name
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  service_plan_id     = var.service_plan_id
+  name                      = var.name
+  resource_group_name       = var.resource_group_name
+  location                  = var.location
+  service_plan_id           = var.service_plan_id
+  virtual_network_subnet_id = var.virtual_network_subnet_id
 
   site_config {
-    ftps_state       = var.ftps_state
-    app_command_line = var.app_command_line
+    ftps_state             = var.ftps_state
+    app_command_line       = var.app_command_line
+    vnet_route_all_enabled = var.vnet_route_all_enabled
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
       content {
