@@ -57,5 +57,15 @@ resource "azurerm_windows_web_app" "example" {
         python = var.python
       }
     }
+  virtual_application {
+    preload = true
+    physical_path = var.physical_path
+    virtual_path = var.virtual_path
+  }
+  virtual_application {
+    preload = true
+    physical_path = var.physical_path1
+    virtual_path = var.virtual_path1
+  }
   }
 }
