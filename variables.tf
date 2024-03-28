@@ -41,33 +41,21 @@ variable "stack_version" {
 
 }
 
-# variable "docker_registry_url" {
-#   type        = string
-#   description = "The URL of the container registry where the docker_image_name is located. e.g. https://index.docker.io or https://mcr.microsoft.com. This value is required with docker_image_name."
-#   default     = "https://mcr.microsoft.com"
-# }
-# variable "docker_registry_username" {
-#   type        = string
-#   description = "The User Name to use for authentication against the registry to pull the image."
-#   default     = "admin"
-
-# }
-# variable "docker_registry_password" {
-#   type        = string
-#   description = "The User Name to use for authentication against the registry to pull the image."
-#   default     = "Welcome@1234"
-
-# }
-variable "java_embedded_server_enabled" {
+variable "docker_registry_url" {
   type        = string
-  description = "value"
-  default     = ""
+  description = "The URL of the container registry where the docker_image_name is located. e.g. https://index.docker.io or https://mcr.microsoft.com. This value is required with docker_image_name."
+  default     = "https://mcr.microsoft.com"
+}
+variable "docker_registry_username" {
+  type        = string
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "admin"
 
 }
-variable "tomcat_version" {
+variable "docker_registry_password" {
   type        = string
-  description = "value"
-  default     = ""
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "Welcome@1234"
 
 }
 variable "python" {
@@ -76,32 +64,3 @@ variable "python" {
   default     = false
 
 }
-variable "virtual_network_subnet_id" {
-  type = string
-  description = "vnet link" 
-}
-
-variable "vnet_route_all_enabled" {
-  type = bool
-  description = "enable all outbound"
-}
-# variable "physical_path" {
-#     type =  string
-#     description = "value"
-  
-# }
-# variable "virtual_path" {
-#     type = string
-#     description = "value"
-  
-# }
-# variable "physical_path1" {
-#     type =  string
-#     description = "value"
-  
-# }
-# variable "virtual_path1" {
-#     type = string
-#     description = "value"
-  
-# }
