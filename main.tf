@@ -36,7 +36,7 @@ resource "azurerm_windows_web_app" "example" {
       content {
         java_version                 = var.stack_version
         java_embedded_server_enabled = var.java_embedded_server_enabled
-        tomcat_version               = var.tomcat_version
+        # tomcat_version               = var.tomcat_version
       }
     }
     dynamic "application_stack" {
