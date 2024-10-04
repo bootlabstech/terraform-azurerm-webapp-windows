@@ -59,15 +59,15 @@ variable "stack_version" {
 
 # }
 variable "java_embedded_server_enabled" {
-  type        = string
+  type        = bool
   description = "value"
-  default     = ""
+  default     = true
 
 }
 variable "tomcat_version" {
-  type        = string
+  type        = bool
   description = "value"
-  default     = ""
+  default     = true
 
 }
 variable "python" {
