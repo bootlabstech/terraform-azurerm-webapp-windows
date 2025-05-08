@@ -121,6 +121,13 @@ resource "azurerm_windows_web_app" "example" {
               name       = "cf15" 
                priority   = 114
     }
+    ip_restriction {
+      name       = "Test"
+      priority   = 100
+      action     = "Allow"
+      ip_address = "0.0.0.0/0"
+    }
+
     # dynamic "application_stack" {
     #   for_each = var.current_stack == "docker" ? [1] : []
     #   content {
