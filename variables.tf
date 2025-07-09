@@ -40,6 +40,11 @@ variable "stack_version" {
   description = "Version of the selected stack."
 
 }
+variable "public_network_access_enabled" {
+  type = bool
+  default = false
+  
+}
 
 # variable "docker_registry_url" {
 #   type        = string

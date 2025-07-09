@@ -5,10 +5,12 @@ resource "azurerm_windows_web_app" "example" {
   location                  = var.location
   service_plan_id           = var.service_plan_id
   virtual_network_subnet_id = var.virtual_network_subnet_id
+  public_network_access_enabled = var.public_network_access_enabled
 
   lifecycle {
     ignore_changes = [ 
-      site_config[0].application_stack[0].dotnet_version
+      app_settings,
+      site_config[0].ip_restriction
      ]
   }
 
