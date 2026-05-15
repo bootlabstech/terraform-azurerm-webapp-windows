@@ -110,3 +110,9 @@ variable "virtual_path1" {
     description = "value"
   
 }
+
+variable "use_32_bit_worker" {
+  type        = bool
+  description = "Specifies whether the Azure Windows Web App should run using a 32-bit worker process instead of the default 64-bit worker process."
+  default     = false
+}

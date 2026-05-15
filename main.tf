@@ -18,6 +18,7 @@ resource "azurerm_windows_web_app" "example" {
     ftps_state             = var.ftps_state
     app_command_line       = var.app_command_line
     vnet_route_all_enabled = var.vnet_route_all_enabled
+    use_32_bit_worker      = var.use_32_bit_worker
     ip_restriction {
        action     = "Allow" 
               headers    = [] 
